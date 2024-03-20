@@ -1,0 +1,29 @@
+﻿@model routing_service.Server.Models.User
+
+<h2>Аккаунт пользователя</h2>
+<p>Имя пользователя: @Model.fullName</p>
+<p>Дата рождения: @Model.dateOfBirth</p>
+<p>Почта: @Model.mail</p>
+<br />
+<a asp-action="create" asp-controller="route" asp-route-id="@Model.userId">Добавить маршрут</a>
+@if (Model.routes != null)
+{
+    <p>Маршруты</p>
+    <table class="table">
+        <tr><th>Название</th><th>Дата</th><th>Комментарий</th></tr>
+        @foreach (var r in Model.routes)
+        {
+            <tr>
+                <td>@r.routeName</td>
+                <td>@r.routeDate</td>
+                <td>@r.routeComment</td>
+                <td><a asp-action="edit" asp-controller="route" asp-route-id="@r.routeId">Изменить</a></td>
+                <td>
+                    <form asp-controller="route" asp-action="delete"asp-route-id="@r.routeId">
+                        <input type="submit" value="Удалить" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+}

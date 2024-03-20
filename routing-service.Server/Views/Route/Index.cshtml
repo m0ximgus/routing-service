@@ -1,0 +1,26 @@
+﻿@model routing_service.Server.Models.Route
+
+<h2>Просмотр маршрута</h2>
+<p>Название: @Model.routeName</p>
+<p>Дата: @Model.routeDate</p>
+<p>Комментарий: @Model.routeComment</p>
+<br />
+<p><a asp-action="addPoint" asp-controller="route" asp-route-id="@Model.routeId">Добавить точку в маршрут</a></p>
+<table class="table">
+    <tr><th>Название</th><th>Адрес</th></tr>
+    @foreach (var p in Model.routeMatches.Where(p => p.routeId == Model.routeId))
+    {
+        <tr>
+            <td>@p.routePoint.routePointName</td>
+            <td>@p.routePoint.routePointAdress</td>
+            <td>
+                <a asp-action="edit" asp-controller="routepoint" asp-route-id="@p.routePointId">Изменить</a>
+            </td>
+            <td>
+                <form asp-controller="routematching" asp-action="delete" method="post" asp-route-id="@p.routePointId">
+                    <input type="submit" value="Удалить"/>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

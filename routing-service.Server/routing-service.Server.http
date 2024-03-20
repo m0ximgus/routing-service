@@ -1,0 +1,6 @@
+@routing_service.Server_HostAddress = http://localhost:5199
+
+GET {{routing_service.Server_HostAddress}}
+Accept: application/json
+
+###

@@ -1,0 +1,18 @@
+﻿@model routing_service.Server.Models.RoutePoint
+
+<h2>Просмотр точки маршрута</h2>
+<p>Название: @Model.routePointName</p>
+<p>Адресс: @Model.routePointAdress</p>
+ <a asp-action="edit" asp-controller="routepoint" asp-route-id="@Model.routePointId"></a> <br />
+<p>В каких маршрутах используется</p>
+<table class="table">
+    <tr><th>Название</th><th>Дата</th><th>Комментарий</th></tr>
+    @foreach (var r in Model.routeMatches.Where(r => r.routePointId == Model.routePointId))
+    {
+        <tr>
+            <td>@r.route.routeName</td>
+            <td>@r.route.routeDate</td>
+            <td>@r.route.routeComment</td>
+        </tr>
+    }
+</table>

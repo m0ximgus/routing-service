@@ -1,0 +1,18 @@
+﻿@model routing_service.Server.Models.User
+
+<h2>Авторизация</h2>
+<form asp-action="login" asp-controller="user">
+    <p>
+        <label asp-for="login">Логин</label><br />
+        <input type="text" asp-for="login" />
+    </p>
+    <p>
+        <label asp-for="password">Логин</label><br />
+        <input type="text" asp-for="password" />
+    </p>
+    <p>
+        <input type="submit" value="Войти" />
+    </p>
+</form>
+<br />
+<a asp-action="create" asp-controller="user">Создать учётную запись</a>

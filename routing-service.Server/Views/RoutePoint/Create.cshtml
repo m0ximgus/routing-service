@@ -1,0 +1,16 @@
+﻿@model routing_service.Server.Models.RoutePoint
+
+<h2>Создание новой точки маршрута</h2>
+<form asp-action="create" asp-controller="route">
+    <p>
+        <label asp-for="routePointName">Название</label><br />
+        <input type="text" asp-for="routePointName" />
+    </p>
+    <p>
+        <label asp-for="routePointAdress">Адресс</label><br />
+        <input type="text" asp-for="routePointAdress" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
