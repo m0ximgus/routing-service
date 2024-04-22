@@ -1,35 +1,23 @@
 import { useEffect, useState } from 'react';
-import { YMaps, Map, Placemark, SearchControl, RouteButton, RulerControl, Polyline } from '@pbe/react-yandex-maps';
+import MyMap from './Map';
 
+//ymaps.ready(EditRoute)
 function EditRoute() {
-    const Route = useSelector((state) => state.route);
+    //const Route = useSelector((state) => state.route);
+
+    let routePoints = [];
     
+
     return (
         <>
-            <p>Название маршрута: {Route.routeName}</p>
-            <p>Дата: {Route.routeDate}</p>
-            <p>Комментарий: {Route.routeComment}</p>
+            <p>Название маршрута: </p>
+            <p>Дата: </p>
+            <p>Комментарий: </p>
 
             <button>Изменить</button>
             <button>Удалить</button>
             <div>
-                <YMaps>
-                    <Map defaultState={{
-                        center: [55.751574, 37.573856],
-                        zoom: 9,
-                        controls: ['routePanelControl'],
-                        SearchControlProvider: "yandex#search",
-                    }} style={{ 
-                        height: '360px',
-                        width: '640px'}}
-                        >
-                        <RouteButton options={{float: "right", }} />
-                        <RulerControl options={{float: "right"}} />
-                        <SearchControl options={{float: "rigth"}} />
-                        <Placemark />
-                        <Polyline />
-                    </Map>
-                </YMaps>
+                <MyMap></MyMap>
             </div>
         </>
 
